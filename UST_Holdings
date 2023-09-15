@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/RDeconomist/data/main/e4e5/US_securities_holders.csv"
+  },
+  "title": {
+    "anchor": "start",
+    "fontSize": 16,
+    "font": "Circular Std",
+    "subtitleFontSize": 12,
+    "subtitleFontStyle": "normal",
+    "subtitleFontWeight": "lighter",
+    "text": "Foreign Holdings of US Treasuries",
+    "subtitle": [
+      " Major Foreign Holders of US Treasury Securities",
+      "Data: US Treasury",
+      ""
+    ]
+  },
+  "config": {"view": {"strokeOpacity": 0}},
+  "width": "container",
+  "height": 400,
+  "mark": {"type": "bar"},
+  "encoding": {
+    "y": {
+      "field": "Country",
+      "sort": {"op": "sum", "field": "yield"},
+      "axis": {"title": null, "domain": false, "tickOpacity": 0}
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "Value",
+      "axis": {
+        "title": null,
+        "tickOpacity": 0,
+        "gridOpacity": 0.6,
+        "titleFontWeight": "normal",
+        "labelExpr": "'$'+datum.value+'T'"
+      }
+    },
+    "color": {
+      "scale": {"scheme": "set2"},
+      "field": "Type",
+      "legend": {
+        "orient": "none",
+        "columns": 2,
+        "legendX": -90,
+        "legendY": -20,
+        "offset": 20,
+        "title": null
+      }
+    },
+    "tooltip": [
+      {"field": "Country"},
+      {"field": "formattedValue", "title": "Amount"}
+    ]
+  },
+  "transform": [
+    {
+      "filter": "datum.Type != 'Total' & datum.EU != 'Yes' & datum.Ranking_2 < 15"
+    },
+    {"calculate": "datum.Value/1000000", "as": "Value"},
+    {"calculate": "'$'+datum.Value+'T'", "as": "formattedValue"}
+  ],
+  "description": "A chart titled 'Who Holds America's Debt?' with subtitle ' Major Foreign Holders of US Treasury Securities Data: US Treasury ",
+  "autosize": {"type": "pad", "contains": "padding", "resize": true}
+}
