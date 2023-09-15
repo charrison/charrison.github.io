@@ -23,7 +23,7 @@ p{font-family: 'Poppins', sans-serif;
 color: white;
 }
 
-.textLink { color: #f4c245; } /* CSS link color (yellow) */
+.textLink { color: #FAF9F6; } /* CSS link color (yellow) */
 .textLink:hover { color: #f6d173; } /* CSS link hover (pale yellow) */
 
 .chart{
@@ -32,7 +32,7 @@ color: white;
     background-color: white;
     border-style: solid;
     border-radius: 10px;
-    border-color: #f4c245;
+    border-color: #FAF9F6;
     margin: auto;
 
 
