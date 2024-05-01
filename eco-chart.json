@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Debt",
-    "subtitle": "Public sector net debt, % GDP | Source: ONS through ECO API",
+    "text": "GDP growth",
+    "subtitle": "GDP growth, % | NBS through ECO API",
     "fontSize": "14",
     "subtitleFontSize": "12",
     "color": "#000000",
@@ -15,7 +15,7 @@
     "fill": "#ffffff"
   },
   "data": {
-    "url": "https://api.economicsobservatory.com/gbr/debt?vega",
+    "url": "https://api.economicsobservatory.com/chn/grow?vega",
     "format": {
       "type": "json"
     }
